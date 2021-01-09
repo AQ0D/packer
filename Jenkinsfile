@@ -45,7 +45,7 @@ node("packer"){
             }
 
             stage('Trigger Deploy Instance'){
-                build wait: false, job: 'terraform-ec2-by-name', parameters: [
+                build wait: false, job: 'terraform_ec2', parameters: [
                     string(name: 'ACTION', value: 'Apply'),
                     string(name: 'ENVIRONMENT', value: "${aws_environment}"),
                     string(name: 'AMI_NAME', value: "${random_name}}")
